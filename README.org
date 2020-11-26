@@ -1,0 +1,6 @@
+#+title: Game of Life
+#+author: Daniele Moser
+#+email: dnlmsr0@gmail.com
+* Introduction
+  This is basically[[https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life][ Conway's Game of Life]], nothing really special.
+  This program was created by me to learn ncurses and some C and Makefile basics.
