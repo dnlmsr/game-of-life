@@ -24,6 +24,11 @@ point getXY(int index, int maxX)
   return output;
 }
 
+int getIndex(point Point, int maxX){
+  int index = Point.y * maxX + Point.x;
+  return index;
+}
+
 int main(int argc, char *argv[])
 {
   srand(time(NULL));
@@ -38,7 +43,7 @@ int main(int argc, char *argv[])
   for (int i = 0; i<90; ++i)
   {
     point Point=getXY(i, maxX);
-    mvaddch(Point.y,Point.x,'*');
+    mvaddch(Point.y,Point.x,getIndex(Point, maxX)%10+'0');
   }
 	refresh();
 	getch();
