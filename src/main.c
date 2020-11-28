@@ -10,6 +10,20 @@
 #include <stdlib.h>
 #include <time.h>
 
+typedef struct
+{
+  int x, y;
+} point;
+
+point getXY(int index, int maxX)
+{
+  point output;
+  output.y=(int)index/maxX;
+  output.x=(int)index%maxX;
+
+  return output;
+}
+
 int main(int argc, char *argv[])
 {
   srand(time(NULL));
@@ -23,9 +37,8 @@ int main(int argc, char *argv[])
   clear();
   for (int i = 0; i<90; ++i)
   {
-    int x=(int) rand()%maxX;
-    int y=(int) rand()%maxY;
-    mvaddch(y,x,'*');
+    point Point=getXY(i, maxX);
+    mvaddch(Point.y,Point.x,'*');
   }
 	refresh();
 	getch();
