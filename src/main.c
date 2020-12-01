@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
     for (int x = 0; x < maxX; ++x) for (int y = 0; y < maxY; ++y) dots[x][y]=newDots[x][y];
 
     refresh();
-    getch();
+    if(getch() == 'q') break;
   }
 	endwin();
   return 0;
