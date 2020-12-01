@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
           }
         if(dots[x][y]){
           if(found<2 || found>3)newDots[x][y]=false;
-          mvaddch(y,x,found +'0');
+          mvaddch(y,x,ACS_BLOCK);
         } else if(found == 3) newDots[x][y]=true;
       }
 
