@@ -35,10 +35,12 @@ int getIndex(point Point, int maxX){
 void initDots(bool dots[maxX][maxY]){
   FILE *fp;
   fp = fopen("./patterns/glider.gol", "r");
-  for (int i = 0; i < 3; ++i) {
+  int i = 0;
+  while (!feof(fp)){
     char str[maxX];
     fscanf(fp,"%s\n",str);
-    for (int j = 0; j < 3; ++j) if(str[j]=='X') dots[j][i]= true;
+    for (int j = 0; j < (int)sizeof(str); ++j) if(str[j]=='X') dots[j][i]= true;
+    ++i;
   }
 }
 
