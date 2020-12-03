@@ -32,9 +32,9 @@ int getIndex(point Point, int maxX){
   return index;
 }
 
-void initDots(bool dots[maxX][maxY]){
+void initDots(bool dots[maxX][maxY], char filePath[]){
   FILE *fp;
-  fp = fopen("./patterns/glider.gol", "r");
+  fp = fopen(filePath, "r");
   int i = 0;
   while (!feof(fp)){
     char str[maxX];
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 
   bool dots[maxX][maxY];
   for (int x = 0; x < maxX; ++x) for (int y = 0; y < maxY; ++y) dots[x][y]=0;
-  initDots(dots);
+  initDots(dots, argv[1]);
 
   while(true){
     clear();
