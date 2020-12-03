@@ -8,29 +8,9 @@
 #include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
 
 int maxX, maxY;
-
-typedef struct
-{
-  int x, y;
-} point;
-
-point getXY(int index, int maxX)
-{
-  point output;
-  output.y=(int)index/maxX;
-  output.x=(int)index%maxX;
-
-  return output;
-}
-
-int getIndex(point Point, int maxX){
-  int index = Point.y * maxX + Point.x;
-  return index;
-}
 
 void initDots(bool dots[maxX][maxY], char filePath[]){
   FILE *fp;
@@ -46,8 +26,6 @@ void initDots(bool dots[maxX][maxY], char filePath[]){
 
 int main(int argc, char *argv[])
 {
-  srand(time(NULL));
-
   initscr();
 
   getmaxyx(stdscr,maxY,maxX);
