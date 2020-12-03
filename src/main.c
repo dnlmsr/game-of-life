@@ -9,6 +9,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
+
+int maxX, maxY;
 
 typedef struct
 {
@@ -29,13 +32,22 @@ int getIndex(point Point, int maxX){
   return index;
 }
 
+void initDots(bool dots[maxX][maxY]){
+  FILE *fp;
+  fp = fopen("./patterns/glider.gol", "r");
+  for (int i = 0; i < 3; ++i) {
+    char str[maxX];
+    fscanf(fp,"%s\n",str);
+    for (int j = 0; j < 3; ++j) if(str[j]=='X') dots[j][i]= true;
+  }
+}
+
 int main(int argc, char *argv[])
 {
   srand(time(NULL));
 
   initscr();
 
-  int maxX, maxY;
   getmaxyx(stdscr,maxY,maxX);
 
   curs_set(0);
@@ -44,6 +56,7 @@ int main(int argc, char *argv[])
 
   bool dots[maxX][maxY];
   for (int x = 0; x < maxX; ++x) for (int y = 0; y < maxY; ++y) dots[x][y]=0;
+  initDots(dots);
 
   while(true){
     clear();
