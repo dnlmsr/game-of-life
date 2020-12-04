@@ -1,6 +1,22 @@
 #+title: Game of Life
 #+author: Daniele Moser
 #+email: dnlmsr0@gmail.com
+#+startup: indent
+[[https://img.shields.io/github/license/dnlmsr/game-of-life?style=flat-square.svg]]
+[[https://img.shields.io/github/repo-size/dnlmsr/game-of-life?style=flat-square.svg]]
 * Introduction
-  This is basically[[https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life][ Conway's Game of Life]], nothing really special.
-  This program was created by me to learn ncurses and some C and Makefile basics.
+This is basically [[https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life][Conway's Game of Life]], nothing really special.
+This program was created by me to learn ncurses and some C and Makefile basics.
+* Installation
+Firstly, make sure gcc and make are installed, then run make inside the main directory:
+#+begin_src bash
+make
+#+end_src
+* Usage
+Run ~gol~ inside the bin directory with an argument representing the path to the initial state:
+#+begin_src bash
+./bin/gol ./patterns/spaceship.gol
+#+end_src
+Then press any key to update to a newer generation. Press ~q~ to exit the game.
+* Contributing
+Although this is a very basic project, pull requests are welcome.
